@@ -18,6 +18,11 @@ img {
 a {
   text-decoration: none;
   display: inline-block;
+  color: #fff;
+}
+
+.show {
+  top: 0 !important;
 }
 
 .container {
@@ -33,42 +38,60 @@ a {
   align-items: center;
   justify-content: center;
 }
-.container .header {
+.container div.header-container {
+  width: 100%;
+  max-width: 1400px;
+}
+.container div.header-container a {
+  z-index: 10;
+}
+.container div.header-container a img {
+  width: 200px;
+}
+.container div.header-container .header {
   width: 100%;
   height: 90px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px;
   background-color: rgba(0, 0, 0, 0.336);
   position: absolute;
   top: 0;
   left: 0;
 }
-.container .header .nav-bar .nav-list {
+.container div.header-container .header .mobile-btn {
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+}
+.container div.header-container .header .mobile-btn div {
+  width: 50px;
+  height: 8px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+.container div.header-container .header .nav-bar .nav-list {
   display: flex;
   gap: 20px;
   list-style-type: none;
 }
-.container .header .nav-bar .nav-list .active {
+.container div.header-container .header .nav-bar .nav-list .active {
   background-color: red;
 }
-.container .header .nav-bar .nav-list .list-items {
+.container div.header-container .header .nav-bar .nav-list .list-items {
   font-size: 1.3rem;
   padding: 5px 10px;
   border-radius: 5px;
   font-weight: bold;
   transition: ease 1s;
 }
-.container .header .nav-bar .nav-list .list-items a {
-  color: inherit;
-}
-.container .header .nav-bar .nav-list .list-items:hover {
+.container div.header-container .header .nav-bar .nav-list .list-items:hover {
   background-color: red;
 }
 .container .description {
   font-size: 4.5rem;
   font-weight: bold;
+  text-align: center;
 }
 .container .buttons {
   margin: 40px auto;
@@ -88,4 +111,73 @@ a {
 }
 .container .buttons button:hover {
   background-color: rgba(255, 0, 0, 0.5);
+}
+
+@media (max-width: 992px) {
+  .container div.header-container a img {
+    width: 150px;
+  }
+  .container div.header-container .header {
+    justify-content: space-between;
+    padding: 15px;
+  }
+  .container div.header-container .header .nav-bar .nav-list {
+    gap: 5px;
+  }
+  .container div.header-container .header .nav-bar .nav-list .list-items {
+    font-size: 1rem;
+  }
+  .container .description {
+    font-size: 3.5rem;
+    font-weight: bold;
+  }
+}
+@media (max-width: 650px) {
+  .container div.header-container a img {
+    width: 150px;
+  }
+  .container div.header-container .header .mobile-btn {
+    display: block;
+  }
+  .container div.header-container .header .nav-bar {
+    position: absolute;
+    top: -100vh;
+    right: 0;
+    background-color: #ff0000;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: all 1s;
+  }
+  .container div.header-container .header .nav-bar .nav-list {
+    gap: 35px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  .container div.header-container .header .nav-bar .nav-list .active {
+    background-color: transparent;
+  }
+  .container div.header-container .header .nav-bar .nav-list .list-items {
+    padding: 20px;
+    font-size: 1.3rem;
+  }
+  .container div.header-container .header .nav-bar .nav-list .list-items:hover {
+    background-color: transparent;
+  }
+  .container .description {
+    font-size: 2rem;
+  }
+  .container .buttons {
+    flex-direction: column;
+  }
+  .container .buttons button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 25px;
+  }
+  .container .buttons button:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
 }
